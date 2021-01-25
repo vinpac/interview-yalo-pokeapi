@@ -7,9 +7,40 @@ import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { META } from '@constants'
 import { SWRConfig } from 'swr'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
+import { useEffect } from 'react'
+import { useFavoritePokemons } from '@lib/pokeapi/favorite'
 
+let loaded = false
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const favoritePokemons = useFavoritePokemons((state) => state.pokemons)
+  const updateFavoritePokemons = useFavoritePokemons((state) => state.update)
+  // Let's persit the pokemon favorite data
+  useEffect(() => {
+    if (loaded) {
+      return
+    }
+
+    const json = localStorage.getItem('favorite-pokemon-json')
+    if (json) {
+      try {
+        const data = JSON.parse(json)
+
+        updateFavoritePokemons(data)
+        toast.success('Restored your favorite pokemons')
+      } catch (error) {
+        console.error(error)
+        toast.error('Failed to restore favorites')
+      }
+    }
+    loaded = true
+  }, [updateFavoritePokemons])
+  useEffect(() => {
+    localStorage.setItem(
+      'favorite-pokemon-json',
+      JSON.stringify(favoritePokemons),
+    )
+  }, [favoritePokemons])
   return (
     <>
       <Head>

@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import Link from 'next/link'
-import { FiGithub, FiHeart, FiHome, FiSearch } from 'react-icons/fi'
+import { FiGithub, FiHeart, FiHome } from 'react-icons/fi'
 import ToolbarLink from './ToolbarLink'
 import SearchPokemonForm from './SearchPokemonForm'
 
@@ -11,7 +11,7 @@ interface Props {
 
 const Toolbar: React.FC<Props> = ({ className }) => {
   return (
-    <div className={cx('bg-primary-500 pt-4 px-8 pb-4', className)}>
+    <div className={cx('bg-primary-500 pt-4 pb-4', className)}>
       <div className="container mb-4 flex items-center">
         <div className="flex mr-auto">
           <Link href="/">
@@ -45,13 +45,7 @@ const Toolbar: React.FC<Props> = ({ className }) => {
         </div>
       </div>
       <div className="container">
-        <div className="relative">
-          <FiSearch
-            size={24}
-            className="absolute left-4 inset-y-0 m-auto text-primary-500"
-          />
-          <SearchPokemonForm />
-        </div>
+        <SearchPokemonForm />
       </div>
     </div>
   )
