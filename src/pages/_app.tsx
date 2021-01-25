@@ -6,6 +6,8 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { META } from '@constants'
+import { SWRConfig } from 'swr'
+import { Toaster } from 'react-hot-toast'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -54,7 +56,14 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           site_name: META.siteName,
         }}
       />
-      <Component {...pageProps} />
+      <SWRConfig
+        value={{
+          shouldRetryOnError: false,
+        }}
+      >
+        <Component {...pageProps} />
+        <Toaster />
+      </SWRConfig>
     </>
   )
 }

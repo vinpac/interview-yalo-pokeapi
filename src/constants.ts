@@ -3,9 +3,9 @@
  * This is an important variable to update
  */
 export const META = {
-  applicationName: 'blank',
-  title: '',
-  description: '',
+  applicationName: 'interview-yalo-pokeapi',
+  title: 'PokeAPI',
+  description: 'An interview test for Yalo: A PokeAPI',
   siteName: '',
   locale: '',
   url: '',

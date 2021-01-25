@@ -32,14 +32,15 @@
     "next-seo": "^4.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hot-toast": "^1.0.2",
     "react-icons": "^3.10.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "swr": "^0.4.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "zustand": "^3.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@tailwindcss/typography": "^0.2.0",
-    "autoprefixer": "^9",
-    "postcss": "^7",
     "@testing-library/react": "^10.4.4",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.4",
@@ -52,6 +53,7 @@
     "@types/testing-library__react": "^10.2.0",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "autoprefixer": "^9",
     "babel-jest": "^26.1.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
@@ -61,6 +63,7 @@
     "jest": "^26.1.0",
     "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.2.11",
+    "postcss": "^7",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
     "typescript": "^3.9.6"
